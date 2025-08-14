@@ -1,0 +1,5 @@
+References
+
+Avionx. (2023, February 1). World Materials Free [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/2d/textures-materials/world-materials-free-150182
+Osmanov. (2019, November 4). Free pack of medieval weapons [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/weapons/free-pack-of-medieval-weapons-136607
+Rubens, R. (2019, November 4). Cozy Mountain Cabin PBR [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/cozy-mountain-cabin-pbr-156755
