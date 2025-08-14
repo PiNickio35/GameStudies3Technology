@@ -22,7 +22,7 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
@@ -48,6 +48,15 @@
                     "id": "bcbfb28a-8991-4181-8d9a-0756c040a7a3",
                     "expectedControlType": "",
                     "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Look",
+                    "type": "PassThrough",
+                    "id": "5000e40e-d072-4d5e-98f6-630a61d394d7",
+                    "expectedControlType": "Vector2",
+                    "processors": "ScaleVector2(x=40,y=40)",
                     "interactions": "",
                     "initialStateCheck": false
                 }
@@ -76,7 +85,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "WASD",
                     "id": "ddb827af-250d-4632-8899-53bda917570a",
                     "path": "2DVector",
                     "interactions": "",
@@ -204,6 +213,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "40419695-438e-4f86-bc69-3974aeb0c351",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=10,y=10)",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b389cafd-22af-4e43-bf0a-7387f531df5d",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
