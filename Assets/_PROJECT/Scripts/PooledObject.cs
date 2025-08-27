@@ -10,5 +10,10 @@ namespace _PROJECT.Scripts
         {
             this._objectPoolingParent = objectPoolingParent;
         }
+
+        public void ReturnToPool()
+        {
+            
+        }
     }
 }

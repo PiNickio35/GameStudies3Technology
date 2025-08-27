@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,18 +11,11 @@ namespace _PROJECT.Scripts
         [SerializeField] private GameObject objectPoolingPrefab;
         [SerializeField] private Transform objectPoolingParent;
         [SerializeField] private int objectPoolingAmount;
+        [SerializeField] private float spawnDelay;
 
         private void Start()
         {
-            for (int i = 0; i < objectPoolingAmount; i++)
-            {
-                objectPool.Add(Instantiate(objectPoolingPrefab, objectPoolingParent));
-                if (objectPool[i].TryGetComponent<PooledObject>(out PooledObject pooledObject))
-                {
-                    pooledObject.SetObjectPoolingParent(this);
-                }
-                objectPool[i].SetActive(false);
-            }
+            StartCoroutine(InstantiatePooledObject());
         }
 
         public void EnableObject()
@@ -41,6 +34,30 @@ namespace _PROJECT.Scripts
                 }
             }
             return null;
+        }
+
+        IEnumerator InstantiatePooledObject()
+        {
+            yield return null;
+            int objectCount = 0;
+            while (objectCount < objectPoolingAmount)
+            {
+                if (objectPoolingParent)
+                {
+                    GameObject tempGameObject = Instantiate(objectPoolingPrefab, objectPoolingParent.transform);
+                    tempGameObject.SetActive(false);
+                    objectPool.Add(tempGameObject);
+                }
+                else
+                {
+                    GameObject tempGameObject = Instantiate(objectPoolingPrefab);
+                    tempGameObject.GetComponent<PooledObject>().SetObjectPoolingParent(this);
+                    tempGameObject.SetActive(false);
+                    objectPool.Add(tempGameObject);
+                }
+                objectCount++;
+                yield return new WaitForSeconds(spawnDelay);
+            }
         }
     }
 }
