@@ -1,36 +1,51 @@
+using System.Collections;
+using _PROJECT.Scripts.Object_Pooling;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour
+namespace _PROJECT.Scripts
 {
-    private Rigidbody rb;
-    private int arrowDamage = 25;
-  
-    private bool isStuck = false; // Flag to track if the arrow is stuck
-    private void Start()
+    public class Arrow : PooledObject
     {
-        rb = GetComponent<Rigidbody>();
+        private Rigidbody _rb;
+        private int _arrowDamage = 25;
+        [SerializeField] private float lifeSpan;
 
-        Destroy(gameObject, 5f); // Destroy the arrow after 5 seconds if it doesn't hit anything
-    }
-
-    // This method is called when the arrow hits a collider
-    private void OnCollisionEnter(Collision collision)
-    {
-        // Check if the arrow is not already stuck
-        if (!isStuck && !collision.transform.CompareTag("Player"))
+        private void OnEnable()
         {
-            isStuck = true; // Mark the arrow as stuck
-
-            // Stop the movement by setting the Rigidbody's velocity and angular velocity to zero
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-
-            // Optionally, freeze the Rigidbody's movement and rotation completely
-            rb.isKinematic = true;
-
-            Debug.Log("Arrow stuck! :" + collision.transform.name);
+            StartCoroutine(DeactivateAfterLifeSpan());
         }
 
-        // Do damage
+        private void Start()
+        {
+            _rb = GetComponent<Rigidbody>();
+        }
+
+        // This method is called when the arrow hits a collider
+        private void OnCollisionEnter(Collision collision)
+        {
+            StopCoroutine(DeactivateAfterLifeSpan());
+            // Check if the arrow is not already stuck
+            if (!collision.transform.CompareTag("Player"))
+            {
+                // Stop the movement by setting the Rigidbody's velocity and angular velocity to zero
+                _rb.linearVelocity = Vector3.zero;
+                _rb.angularVelocity = Vector3.zero;
+
+                // Optionally, freeze the Rigidbody's movement and rotation completely
+                _rb.isKinematic = true;
+
+                Debug.Log("Arrow stuck! :" + collision.transform.name);
+            
+                // Do damage
+            
+                Invoke(nameof(ReturnToPool), lifeSpan);
+            }
+        }
+
+        private IEnumerator DeactivateAfterLifeSpan()
+        {
+            yield return new WaitForSeconds(lifeSpan);
+            ReturnToPool();
+        }
     }
 }
