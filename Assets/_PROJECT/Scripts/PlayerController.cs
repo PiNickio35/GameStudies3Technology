@@ -1,3 +1,4 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,6 +8,7 @@ namespace _PROJECT.Scripts
     [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour
     {
+        public static PlayerController Instance;
         private CharacterController _characterController;
         private Vector2 _moveInput;
         private Vector3 _velocity;
@@ -14,10 +16,17 @@ namespace _PROJECT.Scripts
         [SerializeField] private float speed = 5.00f;
         [SerializeField] private float jumpHeight = 2f;
         [SerializeField] private float gravity = -9.81f;
-        
 
         private void Awake()
         {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
             _characterController = GetComponent<CharacterController>();
         }
 
@@ -44,11 +53,13 @@ namespace _PROJECT.Scripts
 
         public void OnMove(InputAction.CallbackContext context)
         {
+            if (GameController.Instance.state != GameState.Explore) return;
             _moveInput = context.ReadValue<Vector2>();
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
+            if (GameController.Instance.state != GameState.Explore) return;
             if (context.performed && _characterController.isGrounded)
             {
                 _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -57,7 +68,19 @@ namespace _PROJECT.Scripts
 
         public void OnPause(InputAction.CallbackContext context)
         {
-            Application.Quit();
+            switch (GameController.Instance.state)
+            {
+                case GameState.Explore:
+                    GameController.Instance.Pause();
+                    gameObject.GetComponent<PlayerInput>().DeactivateInput();
+                    break;
+                case GameState.Paused:
+                    GameController.Instance.UnPause();
+                    gameObject.GetComponent<PlayerInput>().ActivateInput();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }
