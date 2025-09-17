@@ -5,3 +5,4 @@ Osmanov. (2019, November 4). Free pack of medieval weapons [Unity Asset]. Unity 
 Rowlan. (2025, August 4). StampIt! Collection - FREE Examples [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/p/stampit-collection-free-examples-218286
 Rubens, R. (2019, November 4). Cozy Mountain Cabin PBR [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/cozy-mountain-cabin-pbr-156755
 Staggart Creations. (2025, June 6). Procedural Terrain Painter [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/tools/terrain/procedural-terrain-painter-188357
+Vertex Field. (2019, June 25). Logpile [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/exterior/logpile-114607
