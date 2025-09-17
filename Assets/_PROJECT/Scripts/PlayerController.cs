@@ -72,11 +72,9 @@ namespace _PROJECT.Scripts
             {
                 case GameState.Explore:
                     GameController.Instance.Pause();
-                    gameObject.GetComponent<PlayerInput>().DeactivateInput();
                     break;
                 case GameState.Paused:
                     GameController.Instance.UnPause();
-                    gameObject.GetComponent<PlayerInput>().ActivateInput();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

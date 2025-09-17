@@ -27,7 +27,6 @@ namespace _PROJECT.Scripts
         public void Pause()
         {
             state = GameState.Paused;
-            Debug.Log("Pause");
             pausePanel.SetActive(true);
         }
 
