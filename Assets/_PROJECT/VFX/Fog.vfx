@@ -1318,7 +1318,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614858}
   m_ExposedName: WindSpeedMin
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614863}
   m_ExposedName: WindSpeedMax
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:
@@ -2694,7 +2694,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614902}
   m_ExposedName: FogSizeMin
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 4
   m_Category: 
   m_Min:
     m_Type:
@@ -2775,7 +2775,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614904}
   m_ExposedName: FogSizeMax
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -2989,7 +2989,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614910}
   m_ExposedName: FogGradient
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 5
   m_Category: 
   m_Min:
     m_Type:
@@ -3407,7 +3407,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614922}
   m_ExposedName: FogBaseColor
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 6
   m_Category: 
   m_Min:
     m_Type:
@@ -3624,7 +3624,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614928}
   m_ExposedName: FogSecondaryColor
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 7
   m_Category: 
   m_Min:
     m_Type:
