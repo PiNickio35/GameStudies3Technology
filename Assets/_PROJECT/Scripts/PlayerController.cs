@@ -2,6 +2,7 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace _PROJECT.Scripts
 {
@@ -9,7 +10,7 @@ namespace _PROJECT.Scripts
     public class PlayerController : MonoBehaviour
     {
         public static PlayerController Instance;
-        [SerializeField] private PlayerHealth playerHealth;
+        public PlayerHealth playerHealth;
         private CharacterController _characterController;
         private Vector2 _moveInput;
         private Vector3 _velocity;
@@ -44,6 +45,10 @@ namespace _PROJECT.Scripts
             // Move the player, and update the direction they're facing
             _characterController.Move(moveDirection * (speed * Time.deltaTime));
             transform.localRotation = panRotation;
+            if (playerHealth.health <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
 
         private void FixedUpdate()
