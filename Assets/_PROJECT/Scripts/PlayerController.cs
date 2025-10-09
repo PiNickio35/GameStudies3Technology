@@ -9,6 +9,7 @@ namespace _PROJECT.Scripts
     public class PlayerController : MonoBehaviour
     {
         public static PlayerController Instance;
+        [SerializeField] private PlayerHealth playerHealth;
         private CharacterController _characterController;
         private Vector2 _moveInput;
         private Vector3 _velocity;

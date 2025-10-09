@@ -7,7 +7,6 @@ namespace _PROJECT.Scripts
     public class Arrow : PooledObject
     {
         private Rigidbody _rb;
-        private int _arrowDamage = 25;
         [SerializeField] private float lifeSpan;
 
         private void OnEnable()
@@ -33,10 +32,12 @@ namespace _PROJECT.Scripts
 
                 // Optionally, freeze the Rigidbody's movement and rotation completely
                 _rb.isKinematic = true;
-
-                Debug.Log("Arrow stuck! :" + collision.transform.name);
             
                 // Do damage
+                if (collision.gameObject.GetComponent<IDamageable>() != null)
+                {
+                    collision.gameObject.GetComponent<IDamageable>().Damage();
+                }
             
                 Invoke(nameof(ReturnToPool), lifeSpan);
             }
