@@ -124,10 +124,6 @@ namespace _PROJECT.Scripts
                         currentState = AIState.Running;
                         SwitchAnimationState(currentState);
                     }
-                    else
-                    {
-                        PlayerController.Instance.playerHealth.health -= 1;
-                    }
                 }
                 _switchAction = false;
             }

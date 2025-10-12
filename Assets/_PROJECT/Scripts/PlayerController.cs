@@ -2,7 +2,6 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 namespace _PROJECT.Scripts
 {
@@ -14,6 +13,7 @@ namespace _PROJECT.Scripts
         private CharacterController _characterController;
         private Vector2 _moveInput;
         private Vector3 _velocity;
+        public new ParticleSystem particleSystem;
         [SerializeField] private CinemachinePanTilt playerCamera;
         [SerializeField] private float speed = 5.00f;
         [SerializeField] private float jumpHeight = 2f;
@@ -30,6 +30,7 @@ namespace _PROJECT.Scripts
                 Destroy(gameObject);
             }
             _characterController = GetComponent<CharacterController>();
+            particleSystem = GetComponentInChildren<ParticleSystem>();
         }
 
         private void Update()
@@ -47,7 +48,7 @@ namespace _PROJECT.Scripts
             transform.localRotation = panRotation;
             if (playerHealth.health <= 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Application.Quit();
             }
         }
 
