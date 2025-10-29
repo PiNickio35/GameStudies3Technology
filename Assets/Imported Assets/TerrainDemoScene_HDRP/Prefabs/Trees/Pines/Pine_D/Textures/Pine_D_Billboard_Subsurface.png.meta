@@ -101,5 +101,5 @@ AssetOrigin:
   productId: 213198
   packageName: Unity Terrain - HDRP Demo Scene
   packageVersion: 1.0.3
-  assetPath: Assets/TerrainDemoScene_HDRP/Prefabs/Trees/Pines/Pine_D/Textures/Pine_D_Billboard_Subsurface.png
+  assetPath: Assets/Imported Assets/TerrainDemoScene_HDRP/Prefabs/Trees/Pines/Pine_D/Textures/Pine_D_Billboard_Subsurface.png
   uploadId: 727864

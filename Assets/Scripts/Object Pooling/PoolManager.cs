@@ -1,21 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _PROJECT.Scripts.Object_Pooling
+namespace Object_Pooling
 {
     public class PoolManager : MonoBehaviour
     {
-        public static PoolManager instance;
+        public static PoolManager Instance;
         
         private Dictionary<PooledObject, PoolHandler> _poolDictionary = new Dictionary<PooledObject, PoolHandler>();
 
         private void Awake()
         {
-            if (instance != null)
+            if (Instance != null)
             {
                 Destroy(this.gameObject);
             }
-            instance = this;
+            Instance = this;
         }
 
         public PooledObject Spawn(PooledObject prefab, Vector3 position, Quaternion rotation)

@@ -123,5 +123,5 @@ AssetOrigin:
   productId: 213198
   packageName: Unity Terrain - HDRP Demo Scene
   packageVersion: 1.0.3
-  assetPath: Assets/TerrainDemoScene_HDRP/Prefabs/Details/Textures/Default_Detail.tif
+  assetPath: Assets/Imported Assets/TerrainDemoScene_HDRP/Prefabs/Details/Textures/Default_Detail.tif
   uploadId: 727864

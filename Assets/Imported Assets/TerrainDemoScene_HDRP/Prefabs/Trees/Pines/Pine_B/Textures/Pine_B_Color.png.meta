@@ -125,5 +125,5 @@ AssetOrigin:
   productId: 213198
   packageName: Unity Terrain - HDRP Demo Scene
   packageVersion: 1.0.3
-  assetPath: Assets/TerrainDemoScene_HDRP/Prefabs/Trees/Pines/Pine_B/Textures/Pine_B_Color.png
+  assetPath: Assets/Imported Assets/TerrainDemoScene_HDRP/Prefabs/Trees/Pines/Pine_B/Textures/Pine_B_Color.png
   uploadId: 727864

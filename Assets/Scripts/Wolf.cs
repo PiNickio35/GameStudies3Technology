@@ -2,181 +2,179 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace _PROJECT.Scripts
+public class Wolf : Animal
 {
-    public class Wolf : Animal
-    {
-        public enum AIState { Idle, Walking, Attacking, Running}
-        public AIState currentState = AIState.Idle;
-        public float walkingSpeed = 3.5f;
-        public float runningSpeed = 7f;
-        public Transform target;
-        public float attackDistance;
-        public int awarenessArea = 15;
-        private SphereCollider c;
+    public enum AIState { Idle, Walking, Attacking, Running}
+    public AIState currentState = AIState.Idle;
+    public float walkingSpeed = 3.5f;
+    public float runningSpeed = 7f;
+    public Transform target;
+    public float attackDistance;
+    public int awarenessArea = 15;
+    private SphereCollider _collider;
     
-        private float _distance;
-        private float _actionTimer = 0;
-        private bool _switchAction = false;
-        private List<Vector3> _previousIdlePoints = new List<Vector3>();
+    private float _distance;
+    private float _actionTimer = 0;
+    private bool _switchAction = false;
+    private List<Vector3> _previousIdlePoints = new List<Vector3>();
 
-        private void Start()
-        {
-            agent = GetComponent<NavMeshAgent>();
-            agent.stoppingDistance = 0;
-            agent.autoBraking = true;
+    private void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        agent.stoppingDistance = 0;
+        agent.autoBraking = true;
         
-            c = gameObject.AddComponent<SphereCollider>();
-            c.isTrigger = true;
-            c.radius = awarenessArea;
+        _collider = gameObject.AddComponent<SphereCollider>();
+        _collider.isTrigger = true;
+        _collider.radius = awarenessArea;
         
-            currentState = AIState.Idle;
-            _actionTimer = Random.Range(0.1f, 2.0f);
-            animator = GetComponent<Animator>();
-            Health = 2;
-        }
+        currentState = AIState.Idle;
+        _actionTimer = Random.Range(0.1f, 2.0f);
+        animator = GetComponent<Animator>();
+        Health = 2;
+    }
 
-        private void Update()
+    private void Update()
+    {
+        if (GameController.Instance.state == GameState.Explore)
         {
-            if (GameController.Instance.state == GameState.Explore)
+            //Wait for the next course of action
+            if (_actionTimer > 0)
             {
-                //Wait for the next course of action
-                if (_actionTimer > 0)
-                {
-                    _actionTimer -= Time.deltaTime;
-                }
-                else
-                {
-                    _switchAction = true;
-                }
+                _actionTimer -= Time.deltaTime;
+            }
+            else
+            {
+                _switchAction = true;
+            }
 
-                if (currentState == AIState.Idle)
+            if (currentState == AIState.Idle)
+            {
+                if (_switchAction)
                 {
-                    if (_switchAction)
+                    if (target)
                     {
-                        if (target)
-                        {
-                            // Attack
-                            agent.SetDestination(target.position);
-                            currentState = AIState.Running;
-                            SwitchAnimationState(currentState);
-                        }
-                        else
-                        {
-                            //No enemies nearby, start walking
-                            _actionTimer = Random.Range(14, 22);
-
-                            currentState = AIState.Walking;
-                            SwitchAnimationState(currentState);
-
-                            //Keep last 5 Idle positions for future reference
-                            _previousIdlePoints.Add(transform.position);
-                            if (_previousIdlePoints.Count > 5)
-                            {
-                                _previousIdlePoints.RemoveAt(0);
-                            }
-                        }
-                    }
-                }
-                else if (currentState == AIState.Walking)
-                {
-                    //Set NavMesh Agent Speed
-                    agent.speed = walkingSpeed;
-
-                    // Check if we've reached the destination
-                    if (DoneReachingDestination())
-                    {
-                        currentState = AIState.Idle;
-                    }
-                }
-                else if (currentState == AIState.Running)
-                {
-                    _distance = Vector3.Distance(agent.transform.position, target.position);
-                    //Set NavMesh Agent Speed
-                    agent.speed = runningSpeed;
-
-                    if (_distance >= awarenessArea)
-                    {
-                        target = null;
-                        _actionTimer = Random.Range(1.4f, 3.4f);
-                        currentState = AIState.Idle;
-                        SwitchAnimationState(currentState);
-                    }
-                    else if (_distance < attackDistance)
-                    {
-                        currentState = AIState.Attacking;
-                        SwitchAnimationState(currentState);
-                    }
-                }
-                else if (currentState == AIState.Attacking)
-                {
-                    _distance = Vector3.Distance(agent.transform.position, target.position);
-                    agent.speed = 0;
-                    if (_distance >= awarenessArea)
-                    {
-                        target = null;
-                        _actionTimer = Random.Range(1.4f, 3.4f);
-                        currentState = AIState.Idle;
-                        SwitchAnimationState(currentState);
-                    }
-                    else if (_distance > attackDistance)
-                    {
+                        // Attack
+                        agent.SetDestination(target.position);
                         currentState = AIState.Running;
                         SwitchAnimationState(currentState);
                     }
-                }
-                _switchAction = false;
-            }
-        }
-
-        private bool DoneReachingDestination()
-        {
-            if (!agent.pathPending)
-            {
-                if (agent.remainingDistance <= agent.stoppingDistance)
-                {
-                    if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                    else
                     {
-                        //Done reaching the Destination
-                        return true;
+                        //No enemies nearby, start walking
+                        _actionTimer = Random.Range(14, 22);
+
+                        currentState = AIState.Walking;
+                        SwitchAnimationState(currentState);
+
+                        //Keep last 5 Idle positions for future reference
+                        _previousIdlePoints.Add(transform.position);
+                        if (_previousIdlePoints.Count > 5)
+                        {
+                            _previousIdlePoints.RemoveAt(0);
+                        }
                     }
                 }
             }
-
-            return false;
-        }
-
-        private void SwitchAnimationState(AIState state)
-        {
-            //Animation control
-            if (animator)
+            else if (currentState == AIState.Walking)
             {
-                animator.SetBool("isAttacking", state == AIState.Attacking);
-                animator.SetBool("isRunning", state == AIState.Running);
-                animator.SetBool("isWalking", state == AIState.Walking);
+                //Set NavMesh Agent Speed
+                agent.speed = walkingSpeed;
+
+                // Check if we've reached the destination
+                if (DoneReachingDestination())
+                {
+                    currentState = AIState.Idle;
+                }
+            }
+            else if (currentState == AIState.Running)
+            {
+                _distance = Vector3.Distance(agent.transform.position, target.position);
+                //Set NavMesh Agent Speed
+                agent.speed = runningSpeed;
+
+                if (_distance >= awarenessArea)
+                {
+                    target = null;
+                    _actionTimer = Random.Range(1.4f, 3.4f);
+                    currentState = AIState.Idle;
+                    SwitchAnimationState(currentState);
+                }
+                else if (_distance < attackDistance)
+                {
+                    currentState = AIState.Attacking;
+                    SwitchAnimationState(currentState);
+                }
+            }
+            else if (currentState == AIState.Attacking)
+            {
+                _distance = Vector3.Distance(agent.transform.position, target.position);
+                agent.speed = 0;
+                if (_distance >= awarenessArea)
+                {
+                    target = null;
+                    _actionTimer = Random.Range(1.4f, 3.4f);
+                    currentState = AIState.Idle;
+                    SwitchAnimationState(currentState);
+                }
+                else if (_distance > attackDistance)
+                {
+                    currentState = AIState.Running;
+                    SwitchAnimationState(currentState);
+                }
+            }
+            _switchAction = false;
+        }
+    }
+
+    private bool DoneReachingDestination()
+    {
+        if (!agent.pathPending)
+        {
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    //Done reaching the Destination
+                    return true;
+                }
             }
         }
 
-        private void OnTriggerEnter(Collider other)
+        return false;
+    }
+
+    private void SwitchAnimationState(AIState state)
+    {
+        //Animation control
+        if (animator)
         {
-            //Make sure the Player instance has a tag "Player"
-            if (!other.CompareTag("Player"))
-                return;
-
-            target = other.transform;
-
-            _actionTimer = Random.Range(0.24f, 0.8f);
-            currentState = AIState.Idle;
-            SwitchAnimationState(currentState);
+            animator.SetBool("isAttacking", state == AIState.Attacking);
+            animator.SetBool("isRunning", state == AIState.Running);
+            animator.SetBool("isWalking", state == AIState.Walking);
         }
+    }
 
-        public override void Damage()
+    private void OnTriggerEnter(Collider other)
+    {
+        //Make sure the Player instance has a tag "Player"
+        if (!other.CompareTag("Player"))
+            return;
+
+        target = other.transform;
+
+        _actionTimer = Random.Range(0.24f, 0.8f);
+        currentState = AIState.Idle;
+        SwitchAnimationState(currentState);
+    }
+
+    public override void Damage()
+    {
+        Health--;
+        if (Health <= 0)
         {
-            Health--;
-            if (Health <= 0)
-            {
-                Destroy(gameObject);
-            }
+            Instantiate(meatPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }

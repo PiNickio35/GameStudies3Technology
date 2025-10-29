@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _PROJECT.Scripts.Object_Pooling
+namespace Object_Pooling
 {
     public class PooledObject : MonoBehaviour
     {
@@ -12,12 +12,12 @@ namespace _PROJECT.Scripts.Object_Pooling
 
         protected void ReturnToPool()
         {
-            PoolManager.instance.ReturnToPool(this, KeyRef);
+            PoolManager.Instance.ReturnToPool(this, KeyRef);
         }
 
         protected void Spawn(Vector3 position, Quaternion rotation)
         {
-            PoolManager.instance.Spawn(this, position, rotation);
+            PoolManager.Instance.Spawn(this, position, rotation);
         }
     }
 }

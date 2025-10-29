@@ -1,16 +1,13 @@
 using UnityEngine;
 
-namespace _PROJECT.Scripts
+public class DamageDealer : MonoBehaviour
 {
-    public class DamageDealer : MonoBehaviour
+    private void OnTriggerEnter(Collider other)
     {
-        private void OnTriggerEnter(Collider other)
+        if (other.CompareTag("Player"))
         {
-            if (other.CompareTag("Player"))
-            {
-                PlayerController.Instance.playerHealth.health--;
-                PlayerController.Instance.particleSystem.Play();
-            }
+            PlayerController.Instance.playerHealth.health--;
+            PlayerController.Instance.GetComponent<ParticleSystem>().Play();
         }
     }
 }

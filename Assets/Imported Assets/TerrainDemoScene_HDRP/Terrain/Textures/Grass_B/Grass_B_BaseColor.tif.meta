@@ -137,5 +137,5 @@ AssetOrigin:
   productId: 213198
   packageName: Unity Terrain - HDRP Demo Scene
   packageVersion: 1.0.3
-  assetPath: Assets/TerrainDemoScene_HDRP/Terrain/Textures/Grass_B/Grass_B_BaseColor.tif
+  assetPath: Assets/Imported Assets/TerrainDemoScene_HDRP/Terrain/Textures/Grass_B/Grass_B_BaseColor.tif
   uploadId: 727864

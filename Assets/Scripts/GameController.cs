@@ -1,44 +1,41 @@
 using UnityEngine;
 
-namespace _PROJECT.Scripts
+public enum GameState { Explore, Paused }
+
+public class GameController : MonoBehaviour
 {
-    public enum GameState { Explore, Paused }
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private GameObject pausePanel;
 
-    public class GameController : MonoBehaviour
+    public GameState state = GameState.Explore;
+    public static GameController Instance;
+
+    private void Awake()
     {
-        [SerializeField] private PlayerController playerController;
-        [SerializeField] private GameObject pausePanel;
-
-        public GameState state = GameState.Explore;
-        public static GameController Instance;
-
-        private void Awake()
+        if (Instance == null)
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Instance = this;
         }
-
-        public void Pause()
+        else
         {
-            state = GameState.Paused;
-            pausePanel.SetActive(true);
+            Destroy(gameObject);
         }
+    }
 
-        public void UnPause()
-        {
-            state = GameState.Explore;
-            pausePanel.SetActive(false);
-        }
+    public void Pause()
+    {
+        state = GameState.Paused;
+        pausePanel.SetActive(true);
+    }
 
-        public void QuitGame()
-        {
-            Application.Quit();
-        }
+    public void UnPause()
+    {
+        state = GameState.Explore;
+        pausePanel.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
