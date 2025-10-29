@@ -7,8 +7,8 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Grass Gravel
-  m_DiffuseTexture: {fileID: 2800000, guid: 44a48fe88ad4f5844b6d1672bf702e4f, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: ffb1ec4f6f1b66b44a452109100a2a5a, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: b3fdfbd70980796499d64c860a933a67, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 7dabf7315ed9a434e8b772797d3d3fe6, type: 3}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 1, y: 1}
   m_TileOffset: {x: 0, y: 0}

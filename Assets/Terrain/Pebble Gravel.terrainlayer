@@ -7,8 +7,8 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Pebble Gravel
-  m_DiffuseTexture: {fileID: 2800000, guid: f4ed305362918144e97c242b8301811e, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: df03f46979b9391479c23bf6daef5213, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: 6e36a57c3ec12f34785c67c2f5baa469, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 563f45e05196808429a40eebbb9e42ae, type: 3}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 1, y: 1}
   m_TileOffset: {x: 0, y: 0}
