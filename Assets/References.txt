@@ -1,14 +1,14 @@
 References
 
-Avionx. (2023, February 1). World Materials Free [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/2d/textures-materials/world-materials-free-150182
-Osmanov. (2019, November 4). Free pack of medieval weapons [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/weapons/free-pack-of-medieval-weapons-136607
+Avionx. (2023, February 1). World Materials Free [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/2d/textures-materials/world-materials-free-150182
+Osmanov. (2019, November 4). Free pack of medieval weapons [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/weapons/free-pack-of-medieval-weapons-136607
 pighunt3r15. (2023, May 26). Realistic Deer [3D model]. Sketchfab. https://sketchfab.com/3d-models/realistic-deer-76039b75cdc0492a80680c2404725496
 Pixel Life. (2023, April 28). RPG Food Props DEMO [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/food/rpg-food-props-demo-248712
-Rip Vertices Studio. (2025, February 18). Realistic Furry Wolf (FREE sample REALISTIC FOREST ANIMALS) [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/characters/animals/realistic-furry-wolf-free-sample-realistic-forest-animals-311465
-Rowlan. (2025, August 4). StampIt! Collection - FREE Examples [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/p/stampit-collection-free-examples-218286
-Rubens, R. (2019, November 4). Cozy Mountain Cabin PBR [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/cozy-mountain-cabin-pbr-156755
+Rip Vertices Studio. (2025, February 18). Realistic Furry Wolf (FREE sample REALISTIC FOREST ANIMALS) [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/characters/animals/realistic-furry-wolf-free-sample-realistic-forest-animals-311465
+Rowlan. (2025, August 4). StampIt! Collection - FREE Examples [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/p/stampit-collection-free-examples-218286
+Rubens, R. (2019, November 4). Cozy Mountain Cabin PBR [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/cozy-mountain-cabin-pbr-156755
 Sharp Coder Blog. (2025). How to Make an AI of a Deer in Unity. https://www.sharpcoderblog.com/blog/unity-3d-deer-ai-tutorial
 SlimUI. (2023, November 27). 3D Modern Menu UI [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/tools/gui/3d-modern-menu-ui-116144
-Staggart Creations. (2025, June 6). Procedural Terrain Painter [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/tools/terrain/procedural-terrain-painter-188357
-Vertex Field. (2019, June 25). Logpile [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/exterior/logpile-114607
-Unity Technologies. (2025, January 28). Unity Terrain - HDRP Demo Scene [Unity Asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/unity-terrain-hdrp-demo-scene-213198
+Staggart Creations. (2025, June 6). Procedural Terrain Painter [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/tools/terrain/procedural-terrain-painter-188357
+Vertex Field. (2019, June 25). Logpile [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/exterior/logpile-114607
+Unity Technologies. (2025, January 28). Unity Terrain - HDRP Demo Scene [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/unity-terrain-hdrp-demo-scene-213198
