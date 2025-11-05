@@ -143,7 +143,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
-      "version": "2.10.0",
+      "version": "2.10.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -212,6 +212,16 @@
         "com.unity.performance.profile-analyzer": "1.2.4",
         "com.unity.test-framework": "1.6.0",
         "com.unity.testtools.codecoverage": "1.2.7"
+      }
+    },
+    "com.unity.feature.gameplay-storytelling": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.cinemachine": "3.1.5",
+        "com.unity.timeline": "1.8.9",
+        "com.unity.visualscripting": "1.9.9"
       }
     },
     "com.unity.feature.worldbuilding": {
