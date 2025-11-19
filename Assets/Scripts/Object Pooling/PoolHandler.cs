@@ -15,9 +15,9 @@ namespace Object_Pooling
 
         public void AddToPool(PooledObject poolable)
         {
-            if (poolable.KeyRef == null)
+            if (poolable.keyRef == null)
             {
-                poolable.KeyRef = _prefab;
+                poolable.keyRef = _prefab;
             }
             poolables.Enqueue(poolable);
         }

@@ -2,6 +2,7 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
         }
         _characterController = GetComponent<CharacterController>();
         particleSystem = GetComponentInChildren<ParticleSystem>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
@@ -47,7 +50,7 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = panRotation;
         if (playerHealth.health <= 0)
         {
-            Application.Quit();
+            SceneManager.LoadScene(0);
         }
     }
 

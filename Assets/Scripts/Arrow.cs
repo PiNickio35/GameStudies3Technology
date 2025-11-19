@@ -5,6 +5,7 @@ using UnityEngine;
 public class Arrow : PooledObject
 {
     private Rigidbody _rb;
+    private AudioSource _audioSource;
     [SerializeField] private float lifeSpan;
 
     private void OnEnable()
@@ -15,6 +16,7 @@ public class Arrow : PooledObject
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // This method is called when the arrow hits a collider
@@ -34,6 +36,7 @@ public class Arrow : PooledObject
             // Do damage
             if (collision.gameObject.GetComponent<IDamageable>() != null)
             {
+                _audioSource.Play();
                 collision.gameObject.GetComponent<IDamageable>().Damage();
             }
             

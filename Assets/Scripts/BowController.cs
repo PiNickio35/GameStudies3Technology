@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 
 public class BowController : MonoBehaviour
 {
-    // private Animator bowAnimator; // Reference to the Animator
+    private Animator _bowAnimator; 
+    private AudioSource _audioSource;
     private bool _isDrawing;
 
     [SerializeField] private PooledObject arrowPrefab; // The loaded arrow prefab
@@ -12,9 +13,14 @@ public class BowController : MonoBehaviour
 
     public float shootingForce = 100;
 
+    private void Awake()
+    {
+        _bowAnimator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     private void Start()
     {
-        // bowAnimator = GetComponent<Animator>();
         PoolManager.Instance.InitQueue(arrowPrefab);
     }
 
@@ -23,11 +29,11 @@ public class BowController : MonoBehaviour
         _isDrawing = context.action.IsPressed();
         if (_isDrawing)
         {
-            // bowAnimator.SetBool("IsDrawing", true); // Set the Animator parameter
+            _bowAnimator.SetBool("IsDrawing", true); // Set the Animator parameter
         }
         else
         {
-            // bowAnimator.SetBool("IsDrawing", false); // Set the Animator parameter
+            _bowAnimator.SetBool("IsDrawing", false); // Set the Animator parameter
         }
     }
 
@@ -44,9 +50,9 @@ public class BowController : MonoBehaviour
         if (!_isDrawing) return;
 
         _isDrawing = false;
-        // bowAnimator.SetBool("IsDrawing", false);
+        _bowAnimator.SetBool("IsDrawing", false);
+        _audioSource.Play();
 
-        // Call your shooting logic here
         ShootArrow();
     }
 
@@ -57,10 +63,10 @@ public class BowController : MonoBehaviour
         // Instantiate the arrow
         var arrow = PoolManager.Instance.Spawn(arrowPrefab, spawnPosition.position, Quaternion.identity);
 
-        // Pointing the bullet to face the shooting direction
+        // Pointing the arrow to face the shooting direction
         arrow.transform.forward = shootingDirection;
 
-        // Shoot the bullet
+        // Shoot the arrow
         arrow.GetComponent<Rigidbody>().AddForce(shootingDirection * shootingForce, ForceMode.Impulse);
     }
 

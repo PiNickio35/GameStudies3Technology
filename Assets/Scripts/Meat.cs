@@ -8,6 +8,7 @@ public class Meat : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerController.Instance.meatCount.meatCount++;
+            GameObject.Find("HungerTimer").GetComponent<HungerTimer>().AddTime();
             Destroy(gameObject);
         }
     }

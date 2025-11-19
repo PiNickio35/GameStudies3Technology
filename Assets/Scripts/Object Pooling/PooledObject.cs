@@ -7,12 +7,12 @@ namespace Object_Pooling
         [SerializeField] protected int poolSize = 20;
         
         public int PoolSize => poolSize;
-        public GameObject GameObject => this.gameObject;
-        public PooledObject KeyRef;
+        public GameObject GameObject => gameObject;
+        public PooledObject keyRef;
 
         protected void ReturnToPool()
         {
-            PoolManager.Instance.ReturnToPool(this, KeyRef);
+            PoolManager.Instance.ReturnToPool(this, keyRef);
         }
 
         protected void Spawn(Vector3 position, Quaternion rotation)

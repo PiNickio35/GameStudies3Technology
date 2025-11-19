@@ -1,6 +1,9 @@
 References
 
+Ali_6868. (2022, September 2). Bow Release (Bow and Arrow) 4. Pixabay. https://pixabay.com/sound-effects/bow-release-bow-and-arrow-4-101936/
 Avionx. (2023, February 1). World Materials Free [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/2d/textures-materials/world-materials-free-150182
+DennisH18. (2023, April 17). Arrow Body Impact. Pixabay. https://pixabay.com/sound-effects/arrow-body-impact-146419/
+martats. (2021, August 5). fireplace. Pixabay. https://pixabay.com/sound-effects/fireplace-6354/
 Osmanov. (2019, November 4). Free pack of medieval weapons [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/weapons/free-pack-of-medieval-weapons-136607
 pighunt3r15. (2023, May 26). Realistic Deer [3D model]. Sketchfab. https://sketchfab.com/3d-models/realistic-deer-76039b75cdc0492a80680c2404725496
 Pixel Life. (2023, April 28). RPG Food Props DEMO [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/food/rpg-food-props-demo-248712
@@ -10,5 +13,8 @@ Rubens, R. (2019, November 4). Cozy Mountain Cabin PBR [Unity asset]. Unity Asse
 Sharp Coder Blog. (2025). How to Make an AI of a Deer in Unity. https://www.sharpcoderblog.com/blog/unity-3d-deer-ai-tutorial
 SlimUI. (2023, November 27). 3D Modern Menu UI [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/tools/gui/3d-modern-menu-ui-116144
 Staggart Creations. (2025, June 6). Procedural Terrain Painter [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/tools/terrain/procedural-terrain-painter-188357
-Vertex Field. (2019, June 25). Logpile [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/exterior/logpile-114607
+Syouki_Takahashi. (2024, January 9). Midnight Forest. Pixabay. https://pixabay.com/music/ambient-midnight-forest-184304/
 Unity Technologies. (2025, January 28). Unity Terrain - HDRP Demo Scene [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/unity-terrain-hdrp-demo-scene-213198
+Universfield. (2023, July 24). Misty Forests (15s). Pixabay. https://pixabay.com/sound-effects/misty-forests-15s-159312/
+Vertex Field. (2019, June 25). Logpile [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/exterior/logpile-114607
+Vultype Co. (2019). The Foregen Rough One Regular [Font]. 1001 Fonts. https://www.1001fonts.com/the-foregen-rough-one-font.html
